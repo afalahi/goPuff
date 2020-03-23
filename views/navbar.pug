@@ -1,0 +1,18 @@
+nav.navbar.navbar-expand-lg.sticky-top.navbar-trans.navbar-dark
+  a.navbar-brand(href='#')
+    img(src="https://s3.amazonaws.com/gopuff-content/assets/images/logo_white.svg")
+  button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarTogglerDemo02' aria-controls='navbarTogglerDemo02' aria-expanded='false' aria-label='Toggle navigation')
+    span.navbar-toggler-icon
+  #navbarTogglerDemo02.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+      li.nav-item.active
+        a.nav-link(href='/')
+          | Home 
+          span.sr-only (current)
+      li.nav-item
+        a.nav-link(href='/address') Address
+    ul.navbar-nav
+      li.nav-item.mr-sm-2
+        a.nav-link(href="/login") Login
+      li.nav-item.my-2.my-sm-0
+        a.nav-link(href="/sign-up") Sign Up

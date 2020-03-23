@@ -1,0 +1,35 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+/*basic reset*/
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    height: 100%;
+    background: #00a4ff; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #6441A5, #2a0845); /* Chrome 10-25, Safari 5.1-6 */
+}
+
+body {
+    height: 100%;
+    font-family: montserrat, arial, verdana;
+    background: transparent;
+    /* padding-top: 70px; */
+    margin: 0;
+}
+
+/* a {
+  color: #00B7FF;
+} */
+a.nav-link {
+  color:#fff !important;
+}
+.navbar-trans {
+  background: transparent;
+  color:#fff;
+}
+.navbar-toggler-icon {
+  color: #fff;
+}

@@ -1,0 +1,9 @@
+extends layout
+append stylesheets
+  link(rel="stylesheet", href="../stylesheets/maps.css")
+block content
+  div.address Enter address
+  div#map
+append scripts
+  script(src="../javascripts/maps.js")
+  script(async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBXvsTiy-JhbYjTfFslZN0bv9zn7IfXPvg&callback=initMap")

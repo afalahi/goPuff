@@ -1,0 +1,9 @@
+html {
+  background: #fff;
+}
+.navbar-trans {
+  background:#00a4ff !important;
+}
+#map {
+  height: 80%;
+}
