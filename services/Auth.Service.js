@@ -1,8 +1,3 @@
-// require('dotenv').config()
-// const prompt = require('prompt');
-
-// prompt.start()
-
 const apiClient = require('../utils/apiClient');
 const {findFactors} = require('../utils/helpers');
 
@@ -26,14 +21,14 @@ class AuthService {
     try {
       const {username, type} = await user;
       const payload = {username:username};
-      let url = ''
+      let url = '';
       let {data} = await apiClient('/authn', 'POST', payload, null);
       if (type === 'phone') {
         url = findFactors(data, 'sms');
         data = (await apiClient(url, 'POST', {stateToken:data.stateToken}, null)).data;
       }
       else {
-        url = findFactors(data, 'password')
+        url = findFactors(data, 'password');
       }
 
       const {stateToken, status} = data;
@@ -61,21 +56,21 @@ class AuthService {
   */
   async verify(input, authState) {
     const {status, stateToken, url} = authState;
-    const payload = {stateToken:stateToken}
+    const payload = {stateToken: stateToken};
 
     try {
       if(status === 'MFA_CHALLENGE') {
-        payload.passCode = input
-        const {data} = await apiClient(url, 'POST', payload, null)
+        payload.passCode = input;
+        const {data} = await apiClient(url, 'POST', payload, null);
         if(data.status === "SUCCESS") {
-          return data
+          return data;
         }
       }
       else {
-        payload.password = input
-        const {data} = await apiClient(url, 'POST', payload, null)
+        payload.password = input;
+        const {data} = await apiClient(url, 'POST', payload, null);
         if(data.status === "SUCCESS") {
-          return data
+          return data;
         }
       }
     }
@@ -84,18 +79,5 @@ class AuthService {
     }
   }
 }
-module.exports = AuthService
 
-// const user = UserService.lookup('(571) 377-8726')
-// const auth = new AuthService()
-// const authStatus = auth.initLogin(user)
-
-// prompt.get(['code'], (err, result) => {
-//   if (err) {return onErr(err)}
-//   auth.verify(result.code, authStatus)
-// })
-
-// function onErr(err) {
-//   console.log(err);
-//   return 1
-// }
+module.exports = AuthService;

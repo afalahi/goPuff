@@ -6,8 +6,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const helmet = require('helmet');
 const favicon = require('express-favicon');
+const flash = require('flash');
 
-const oidc = require('./utils/oidc');
+const oidc = require('./middleware/oidc');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
@@ -29,11 +30,18 @@ app.use(require('express-session')({
   resave: true,
   saveUninitialized: false
 }))
-
+app.use(flash())
+//flush flash messages on page refresh/navigation
+app.use((req, res, next) => {
+  if (req.session && req.session.flash && req.session.flash.length > 0) {
+    req.session.flash = []
+  }
+  next()
+})
 app.use(oidc.router)
+app.use(require('./middleware/locals'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -48,6 +56,7 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
+  delete req.session.flash;
 });
 
 module.exports = app;

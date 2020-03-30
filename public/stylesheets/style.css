@@ -19,7 +19,9 @@ body {
     /* padding-top: 70px; */
     margin: 0;
 }
-
+.alert {
+  margin:15px;
+}
 /* a {
   color: #00B7FF;
 } */
