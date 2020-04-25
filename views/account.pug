@@ -1,0 +1,18 @@
+extends layout
+append stylesheets
+  link(rel='stylesheet', href='../stylesheets/account.css')
+block content
+  .container
+    .row
+      .col-md-3
+        .list-group#account-settings(role='tablist')
+          a.list-group-item.list-group-item-action.active(href='#profile' data-toggle="list" role="tab" aria-controls="profile") Profile
+          a.list-group-item.list-group-item-action(href='#orders' data-toggle="list" role="tab" aria-controls="orders") Orders
+          a.list-group-item.list-group-item-action(href='#payment-options' data-toggle="list" role="tab" aria-controls="payment options") Payment Options
+          a.list-group-item.list-group-item-action(href='#appearance' data-toggle="list" role="tab" aria-controls="appearance") Appearance
+          a.list-group-item.list-group-item-action(href='#settings' data-toggle="list" role="tab" aria-controls="settings") Settings
+      .col-md-9
+        .tab-content
+          include account-profile
+          include account-orders
+          include account-payments
