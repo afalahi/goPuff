@@ -5,9 +5,9 @@ const {
     initLoginController, 
     verifyController
   },
-  profileController
+  accountController
 } = require('../controllers');
-const {isAuthenticated} = require('../middleware');
+const {oidc} = require('../middleware');
 
 const router = express.Router();
 /* GET home page. */
@@ -18,7 +18,7 @@ router
   .get('/address', (req, res, next) => {
     res.render('address')
   })
-  .get('/profile', isAuthenticated, profileController)
+  .get('/account', oidc.ensureAuthenticated(), accountController)
   .post('/initLogin', initLoginController)
   .post('/verify', verifyController)
 module.exports = router;
