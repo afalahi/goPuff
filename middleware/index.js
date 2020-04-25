@@ -1,6 +1,6 @@
-const isAuthenticated = require('./isAuthenticated');
+const oidc = require('./oidc');
 
 
 module.exports = {
-  isAuthenticated
+  oidc
 }
