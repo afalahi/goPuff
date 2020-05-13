@@ -1,5 +1,7 @@
 extends layout
 
 block content
+  if user
+    - var loggedUser = user.userinfo.name
   h1= title
-  p Welcome to #{title}
+  p Welcome #{loggedUser} to #{title}

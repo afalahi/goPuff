@@ -1,0 +1,47 @@
+.tab-pane.active.fade.show#profile(role="tabpanel")
+  .card
+    .card-body
+      .row
+        .col-md-12
+          h4 Your Profile
+          hr
+      .row
+        .col-md-12
+          form
+            .form-group.row
+              label.col-4.col-form-label(for='username') User Name*
+              .col-8
+                //- p #{user.userinfo.preferred_username}
+                input#username.form-control-plaintext.here(name='username' value=`${user.userinfo.preferred_username}` readonly type='text')
+            .form-group.row
+              label.col-4.col-form-label(for='name') First Name
+              .col-8
+                input#name.form-control-plaintext.here(name='name' placeholder='First Name' type='text' value=`${user.userinfo.given_name}`)
+            .form-group.row
+              label.col-4.col-form-label(for='lastname') Last Name
+              .col-8
+                input#lastname.form-control-plaintext.here(name='lastname' placeholder='Last Name' type='text' value=`${user.userinfo.family_name}`)
+            .form-group.row
+              label.col-4.col-form-label(for='text') Nick Name
+              .col-8
+                input#text.form-control-plaintext.here(name='text' placeholder='Nick Name' required='required' type='text')
+            .form-group.row
+              label.col-4.col-form-label(for='email') Email
+              .col-8
+                input#email.form-control-plaintext.here(name='email' value=`${user.userinfo.email}` readonly type='email')
+                //- p #{user.userinfo.email}
+            .form-group.row
+              label.col-4.col-form-label(for='phone') Cell Phone
+              .col-8
+                input#lastname.form-control-plaintext.here(name='phone' placeholder='Cell Phone' type='tel' value=`${user.userinfo.phone_number}`)
+            .form-group.row
+              label.col-4.col-form-label(for='publicinfo') Bio
+              .col-8
+                textarea#publicinfo.form-control-plaintext(name='publicinfo' cols='40' rows='4') Look... I feel like I'm running out of ways to explain this to you but once more, I shall try. This fly is a major problem for us. It will ruin our batch. And we need to destroy it and every trace of it, so we can cook. Failing that, we're dead. There's no more room for error. Not with these people. 
+            .form-group.row
+              label.col-4.col-form-label(for='newpass') New Password
+              .col-8
+                input#newpass.form-control-plaintext.here(name='newpass' value="************" type='password' readonly)
+            .form-group.row
+              .offset-4.col-8
+                button.btn.btn-primary(name='submit' type='submit') Edit My Profile

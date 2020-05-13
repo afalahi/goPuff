@@ -1,0 +1,10 @@
+#name, #lastname {
+  text-transform: capitalize;
+}
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
