@@ -1,7 +1,7 @@
 const ExpressOIDC = require('@okta/oidc-middleware').ExpressOIDC;
 
 const oidc = new ExpressOIDC({
-  issuer: `${process.env.OKTA_URL}/oauth2/default`,
+  issuer: `https://${process.env.OKTA_URL}/oauth2/default`,
   client_id: process.env.CLIENT_ID,
   client_secret: process.env.CLIENT_SECRET,
   appBaseUrl: 'http://localhost:3000',
